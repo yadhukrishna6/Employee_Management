@@ -1,0 +1,62 @@
+<div class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand ms-3" href="#">ESZES</a>
+  <div class="ms-auto">
+    <img src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="mdo" width="60" height="52" class="rounded-circle">
+  </div>
+</div>
+
+
+<div class="container-fluid" style="margin-top: 60px;"> 
+  <div class="row">
+    
+ 
+    <div class="col-md-3 p-0" style="width: 280px; position: fixed; height: 100vh; top: 60px;">
+      <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary h-100">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <span class="fs-4"></span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item mb-3">
+            <a href="#" class="nav-link active" aria-current="page">
+              Home
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/dashboard" class="nav-link link-body-emphasis">
+              Dashboard
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/profile-view" class="nav-link link-body-emphasis">
+              profile
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/employee" class="nav-link link-body-emphasis">
+              Employee
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/projects" class="nav-link link-body-emphasis">
+              Projects
+            </a>
+          </li>
+          <li class="mb-3">
+            <a routerLink="/project-employee" class="nav-link link-body-emphasis">
+              Project-Employee
+            </a>
+          </li>
+        </ul>
+        <div class="text-end mt-auto">
+          <button type="button" class="btn btn-primary" (click)="logoff()">Log out</button>
+        </div>
+      </div>
+    </div>
+
+ 
+    <div class="col-md-9 offset-md-3 p-3" style="margin-left: 280px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

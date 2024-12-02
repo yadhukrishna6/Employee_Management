@@ -1,0 +1,129 @@
+<div class="action-buttons">
+    <button class="cancel-btn" (click)="onCancelProfile()" disabled>Cancel</button>
+    <button class="save-btn" (click)="onSaveProfile()" disabled>Save</button>
+</div>
+<div class="profile-container">
+    <h2 class="profile-title">User Profile</h2>
+
+    <div class="profile-card">
+        <h3 class="section-title">Basic Info</h3>
+        <div class="profile-info">
+            <div class="profile-picture">
+                <img [src]="profileImageUrl || 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png'"
+                    alt="Profile Picture" (click)="triggerFileInput()" />
+            </div>
+            <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;">
+
+
+            <div class="profile-details">
+                <h4 class="user-name"></h4>
+                <p class="user-id">ID: 226238712898 <span class="copy-icon">&#128203;</span></p>
+               
+            </div>
+        </div>
+
+        <form class="profile-form">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input id="firstName" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" type="text" />
+            </div>
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <select id="department">
+                    <option>UI/UX</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="position">Position:</label>
+                <select id="position">
+                    <option>Designer</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hiredDate">Hired Date:</label>
+                <input id="hiredDate" type="date" />
+            </div>
+            <div class="form-group">
+                <label for="birthDate">Birth Date:</label>
+                <input id="birthDate" type="date" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="contact-address-container">
+
+    <div class="card contact-card">
+        <h3 class="section-title">Contacts</h3>
+        <form class="contact-form">
+
+            <div class="form-group">
+                <label for="contactPhone">Phone:</label>
+                <input id="contactPhone" type="tel" />
+            </div>
+
+            <div class="form-group">
+                <label for="contactEmail">Email:</label>
+                <input id="contactEmail" type="email" />
+            </div>
+
+            <div class="form-group">
+                <label for="domainUsername">Domain Username:</label>
+                <input id="domainUsername" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status:</label>
+                <select id="status">
+                    <option value="salaried">Salaried</option>
+                    <option value="contractor">Contractor</option>
+                    <option value="intern">Intern</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="supervisor">Supervisor:</label>
+                <input id="supervisor" type="text" />
+            </div>
+        </form>
+    </div>
+
+
+    <div class="card address-card">
+        <h3 class="section-title">Address</h3>
+        <form class="address-form">
+
+            <div class="form-group">
+                <label for="country">Country:</label>
+                <input id="country" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input id="city" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="state">State/province/area:</label>
+                <input id="state" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input id="address" type="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input id="zip" type="text" />
+            </div>
+        </form>
+    </div>
+
+</div>
