@@ -18,36 +18,37 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item mb-3">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="nav-link">
               Home
             </a>
           </li>
           <li class="mb-3">
-            <a routerLink="/dashboard" class="nav-link link-body-emphasis">
+            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
               Dashboard
             </a>
           </li>
           <li class="mb-3">
-            <a routerLink="/profile-view" class="nav-link link-body-emphasis">
-              profile
+            <a routerLink="/profile-view" routerLinkActive="active" class="nav-link">
+              Profile
             </a>
           </li>
           <li class="mb-3">
-            <a routerLink="/employee" class="nav-link link-body-emphasis">
+            <a routerLink="/employee" routerLinkActive="active" class="nav-link">
               Employee
             </a>
           </li>
           <li class="mb-3">
-            <a routerLink="/projects" class="nav-link link-body-emphasis">
+            <a routerLink="/projects" routerLinkActive="active" class="nav-link">
               Projects
             </a>
           </li>
           <li class="mb-3">
-            <a routerLink="/project-employee" class="nav-link link-body-emphasis">
+            <a routerLink="/project-employee" routerLinkActive="active" class="nav-link">
               Project-Employee
             </a>
           </li>
         </ul>
+        
         <div class="text-end mt-auto">
           <button type="button" class="btn btn-primary" (click)="logoff()">Log out</button>
         </div>

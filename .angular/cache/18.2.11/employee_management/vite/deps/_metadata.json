@@ -7,49 +7,81 @@
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
+<<<<<<< HEAD
       "fileHash": "933ce56e",
+=======
+      "fileHash": "b74fac10",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
       "fileHash": "4f5e1bac",
+=======
+      "fileHash": "d587eefb",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
       "fileHash": "1933248c",
+=======
+      "fileHash": "757f1f43",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
       "fileHash": "53a69078",
+=======
+      "fileHash": "de733f92",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
       "fileHash": "573423c2",
+=======
+      "fileHash": "3ccf106b",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "primeng/api": {
       "src": "../../../../../../node_modules/primeng/fesm2022/primeng-api.mjs",
       "file": "primeng_api.js",
+<<<<<<< HEAD
       "fileHash": "0bf81105",
+=======
+      "fileHash": "15aacbc8",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "primeng/splitbutton": {
       "src": "../../../../../../node_modules/primeng/fesm2022/primeng-splitbutton.mjs",
       "file": "primeng_splitbutton.js",
+<<<<<<< HEAD
       "fileHash": "cb76b95b",
+=======
+      "fileHash": "460c6884",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     },
     "primeng/toast": {
       "src": "../../../../../../node_modules/primeng/fesm2022/primeng-toast.mjs",
       "file": "primeng_toast.js",
+<<<<<<< HEAD
       "fileHash": "1af3ba3d",
+=======
+      "fileHash": "18598da7",
+>>>>>>> f7df6b12c8cbf8990f41e02454b53a5cac813b65
       "needsInterop": false
     }
   },
