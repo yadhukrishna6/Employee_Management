@@ -17,12 +17,7 @@ export class EmployeeComponent implements OnInit {
   parentDeptList=signal<IParentDept[]>([]);
 
   ngOnInit(): void {
-    this.getParentDept();
+  
   }
 
-  getParentDept(){
-    this.masterSrv.getAllDept().subscribe((res:IApiResponse)=>{
-      this.parentDeptList.set(res.data);  
-    });
-  }
 }

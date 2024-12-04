@@ -1,102 +1,100 @@
- <div class="tab-pane fade show active " id="employees" role="tabpanel">
-    <div class="row">
-        <div class="col-6">
-            <h2>Employees</h2>
-        </div>
-        <div class="col-6 text-end">
-            <button class="btn btn-success"(click)="isFormVisible.set(true)">Add New </button>
-        </div>
-
-    </div>
-  
-    @if (isFormVisible()) {
-        <form class="mb-4">
-            <div class="row">
-                <div class="col-md-6 p-3">
-                    <label for="employeeName" class="form-label">Employee Name</label>
-                    <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
-                </div>
-                <div class="col-md-6 p-3">
-                    <label for="contactNo" class="form-label">Contact No</label>
-                    <input type="text" class="form-control" id="contactNo" placeholder="Enter contact number">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 p-3">
-                    <label for="emailId" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="emailId" placeholder="Enter email">
-                </div>
-               
-                    <div class="col-md-6 p-3">
-                        <label for="gender" class="form-label">Gender</label>
-                        <select id="gender" class="form-select">
-                            <option selected>Select gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
+<div class="surface-ground">
+    <div class="grid">
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-f-1.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">Lindsay Connor</span>
+                        <span class="text-600 font-medium mb-2">Test Engineer</span>
+                        <span class="bg-blue-50 text-blue-400 border-round inline-flex py-1 px-2 text-sm">Editor</span>
                     </div>
-                
-                
-               
-            </div>
-            <div class="row">
-               
-                <div class="col-md-6 p-3">
-                    <label for="deptId" class="form-label">parent Department</label>
-                    <select id="deptId" class="form-select">
-                        <option selected>Select department</option>
-                        @for (item of parentDeptList(); track $index) {
-                            <option [value]="item.departmentId">{{item.departmentName}}</option>
-                        }
-                    </select>
                 </div>
-                <div class="col-md-6 p-3">
-                    <label for="deptId" class="form-label"> child Department</label>
-                    <select id="deptId" class="form-select">
-                        <option selected>Select department</option>
-    
-                    </select>
-                </div>
-               
-            </div>
-            <div class="row">
-                <div class="col-md-6 p-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter password">
-                </div>
-                <div class="col-md-6 p-3">
-                    <label for="role" class="form-label">Role</label>
-                    <input type="text" class="form-control" id="role" placeholder="Enter role">
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
                 </div>
             </div>
-         
-            <button type="button" class="btn btn-primary mt-3 me-2">Submit</button>
-            <button class="btn btn-success mt-3 gap-1"(click)="isFormVisible.set(false)">Close</button>
-        </form>
-    }
-
-
-    <h3>Employee List</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Employee ID</th>
-                <th>Name</th>
-                <th>Contact No</th>
-                <th>Email</th>
-                <th>Department</th>
-                <th>Role</th>
-                <th>Gender</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
+        </div>
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-m-1.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">James McAvoy</span>
+                        <span class="text-600 font-medium mb-2">Project Manager</span>
+                        <span class="bg-purple-50 text-purple-400 border-round inline-flex py-1 px-2 text-sm">Contributor</span>
+                    </div>
+                </div>
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-f-2.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">Aisha Jones</span>
+                        <span class="text-600 font-medium mb-2">Designer</span>
+                        <span class="bg-blue-50 text-blue-400 border-round inline-flex py-1 px-2 text-sm">Editor</span>
+                    </div>
+                </div>
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-m-2.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">Roberto Fox</span>
+                        <span class="text-600 font-medium mb-2">QA Engineer</span>
+                        <span class="bg-orange-50 text-orange-400 border-round inline-flex py-1 px-2 text-sm">Author</span>
+                    </div>
+                </div>
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-f-4.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">Jenny Wilson</span>
+                        <span class="text-600 font-medium mb-2">Scrum Master</span>
+                        <span class="bg-purple-50 text-purple-400 border-round inline-flex py-1 px-2 text-sm">Contributor</span>
+                    </div>
+                </div>
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 md:col-6 xl:col-4 p-3">
+            <div class="surface-card shadow-2 border-round p-4">
+                <div class="flex border-bottom-1 surface-border pb-4">
+                    <img src="assets/images/blocks/avatars/circle/avatar-f-5.png" style="width: 70px;height: 70px" class="mr-3" />
+                    <div class="flex flex-column align-items-start">
+                        <span class="text-xl text-900 font-medium mb-1">Claire Flores</span>
+                        <span class="text-600 font-medium mb-2">Developer</span>
+                        <span class="bg-teal-50 text-teal-400 border-round inline-flex py-1 px-2 text-sm">Subscriber</span>
+                    </div>
+                </div>
+                <div class="flex justify-content-between pt-4">
+                    <button pButton pRipple label="View" icon="pi pi-search" class="p-button-outlined p-button-secondary w-6 mr-2"></button>
+                    <button pButton pRipple label="Follow" icon="pi pi-user-plus" class="p-button-outlined p-button-secondary w-6 ml-2"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<script>
-
-</script>
