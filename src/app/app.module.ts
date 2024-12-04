@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,8 +21,14 @@ import { ProfileViewComponent } from './view/profile-view/profile-view.component
 import { ProjectComponent } from './view/project/project.component';
 import { ProjectEmployeeComponent } from './view/project-employee/project-employee.component';
 import { SidebarModule } from 'primeng/sidebar';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';  // Only import here in root module
 import { AppComponent } from './app.component';
+
+import { NavbarComponent } from './view/navbar/navbar.component';
+import { SidebarComponent } from './view/sidebar/sidebar.component';
+import { FooterComponent } from './view/footer/footer.component';
+
+
 
 @NgModule({
   imports: [
@@ -38,19 +44,30 @@ import { AppComponent } from './app.component';
     StyleClassModule,
     BrowserAnimationsModule, 
     SidebarModule,
+   
     BrowserModule
+    
+    // Removed BrowserModule from this module
   ],
+
   providers: [],
-  bootstrap: [],
+  bootstrap: [AppComponent],  
   declarations: [
-  
+    NavbarComponent,
+    SidebarComponent,
+    AppComponent,  // Make sure AppComponent is declared here
+    LoginComponent,
+    EmployeeComponent,
+    ProfileViewComponent,
+    ProjectComponent,
+    ProjectEmployeeComponent,
     ProfileComponent,
-  
+   
+   
   ],
   exports: [
-   
     ProfileComponent,
-  
+   
   ],
 })
 export class AppModule {}

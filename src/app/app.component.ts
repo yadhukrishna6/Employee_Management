@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { NavbarComponent } from './view/navbar/navbar.component';
 
-
-
 @Component({
   selector: 'app-root',
   standalone: true,

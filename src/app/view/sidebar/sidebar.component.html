@@ -1,15 +1,55 @@
-<div class="sidebar bg-dark text-white vh-100" [class.toggled]="isToggled">
-    <ul class="nav flex-column">
+<div class="sidebar bg-dark vh-100" [class.toggled]="isToggled">
+  <div class="sidebar-header d-flex align-items-center justify-content-between px-3">
+    <div class="logo d-flex align-items-center">
+      <img src="your-logo.png" alt="Logo" class="logo-img" />
+    </div>
+  </div>
+  <hr />
+  <ul class="nav flex-column ms-2">
+    <!-- Other menu items -->
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/dashboard">
+        <i class="fa fa-home icon"></i>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/settings">
+        <i class="fa fa-cogs icon"></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div class="employee-section"><div class="employee-section">
+    <!-- Employees Header -->
+    <a class="nav-link d-flex justify-content-between align-items-center ms-2" (click)="toggleEmployees()">
+      <span>
+        <i class="fa fa-users icon"></i> <span class="text">Employees</span>
+      </span>
+      <!-- Arrow icon visibility controlled by CSS -->
+      <i
+        class="arrow-icon"
+        [class]="isEmployeesExpanded ? 'fa fa-chevron-down' : 'fa fa-chevron-right'"
+      ></i>
+    </a>
+    
+  
+    <!-- Employees List -->
+    <ul class="nav flex-column" *ngIf="isEmployeesExpanded">
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/dashboard">
-          <i class="fas fa-tachometer-alt"></i> Dashboard
+        <a class="nav-link" routerLink="/employee-list">
+          <i class="fa fa-list icon"></i> <span class="text">Employee List</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/users">
-          <i class="fas fa-user-friends"></i> Users
+        <a class="nav-link" routerLink="/add-employee">
+          <i class="fa fa-user-plus icon" routerLink="/employee"></i> <span class="text">Add Employee</span>
         </a>
       </li>
     </ul>
   </div>
   
+
+  <hr />
+</div>

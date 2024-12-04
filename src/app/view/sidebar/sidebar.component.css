@@ -1,26 +1,191 @@
-
+/* Default Sidebar Styling */
 .sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: width 0.3s ease;
+  width: 250px; /* Sidebar default width */
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar when toggled */
+.sidebar.toggled {
+  width: 70px; /* Reduced width when toggled */
+}
+
+
+/* Hide the text when the sidebar is toggled */
+.sidebar .text {
+  opacity: 1;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+
+
+/* Hide text when the sidebar is toggled */
+.sidebar.toggled .text {
+  opacity: 0;
+  pointer-events: none;  /* Disable interactions with hidden text */
+}
+
+/* Show icons on the right side of the text */
+.sidebar .nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  transition: all 0.3s;
+}
+
+/* Make sure the icon appears to the right of the text */
+.sidebar .icon {
+  margin-left: auto;
+  font-size: 24px;
+  transition: font-size 0.3s ease;
+}
+
+/* When the sidebar is toggled, reduce icon size */
+.sidebar.toggled .icon {
+  font-size: 20px; /* Slightly smaller icon */
+}
+
+/* When the sidebar is toggled, hide the text */
+.sidebar.toggled .text {
+  display: none;  /* Make sure the text is fully hidden */
+}
+
+/* Optional: Media query for smaller screens (if needed) */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Reduced width for smaller screens */
   }
-  
-  .sidebar.toggled {
-    width: 80px; /* Adjust this to your desired collapsed width */
+
+  .sidebar .text {
+    display: none;
   }
-  
-  .sidebar .nav-link i {
-    margin-right: 10px;
+
+  .sidebar .icon {
+    font-size: 20px;
   }
-  
-  .sidebar.toggled .nav-link i {
-    margin-right: 0;
-    text-align: center;
-  }
-  .nav-link i {
-    margin-right: 8px;
-    font-size: 1.2rem;
-  }
-  
+}
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  color: #333;
+  transition: width 0.3s ease;
+}
+
+.sidebar.toggled {
+  width: 70px;
+}
+
+.sidebar-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+.logo-text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #f1f1f1;
+}
+
+.nav-link .icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.nav-link .text {
+  flex-grow: 1;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link .badge {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.sidebar h6 {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #aaa;
+}
+.sidebar .nav-item {
+  padding: 10px;
+}
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+}
+.sidebar .nav-link .icon {
+  margin-right: 10px;
+}
+.employee-section {
+  padding-left: 6px;
+}
+
+.sidebar.toggled .employee-section {
+  padding-left: 5px; /* Adjust padding for compact mode */
+}
+
+.sidebar .employee-section ul {
+  margin-top: 5px;
+  padding-left: 0px; /* Add proper spacing for nested items */
+  transition: all 0.3s ease;
+}
+
+.sidebar.toggled .employee-section ul {
+  display: none; /* Hide the nested menu when the sidebar is toggled */
+}
+.employee-section .nav-link {
+  padding-right: 10px; /* Space adjustment for when the arrow is hidden */
+}
+
+/* Arrow icon by default */
+.arrow-icon {
+  opacity: 1;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide arrow icon when the sidebar is toggled */
+.sidebar.toggled .arrow-icon {
+  opacity: 0;           /* Make the arrow invisible */
+  pointer-events: none; /* Disable interactions */
+}
+
