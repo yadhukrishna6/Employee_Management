@@ -1,12 +1,15 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './view/login/login.component';
-import { LayoutComponent } from './view/layout/layout.component';
+
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { EmployeeComponent } from './view/employee/employee.component';
 import { ProjectEmployeeComponent } from './view/project-employee/project-employee.component';
 import { ProjectComponent } from './view/project/project.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { ProfileViewComponent } from './view/profile-view/profile-view.component';
+import { AppMenuComponent } from './app.menu.component';
+
+
 
 
 
@@ -23,7 +26,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        component: LayoutComponent,
+        component: AppMenuComponent,
         children: [
             {
                 path: 'dashboard',
