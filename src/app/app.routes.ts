@@ -7,7 +7,8 @@ import { ProjectEmployeeComponent } from './view/project-employee/project-employ
 import { ProjectComponent } from './view/project/project.component';
 import { ProfileComponent } from './view/profile/profile.component';
 import { ProfileViewComponent } from './view/profile-view/profile-view.component';
-import { AppMenuComponent } from './app.menu.component';
+
+import { AppComponent } from './app.component';
 
 
 
@@ -26,7 +27,7 @@ export const routes: Routes = [
     },
     {
         path: '',
-        component: AppMenuComponent,
+        component: AppComponent,
         children: [
             {
                 path: 'dashboard',
