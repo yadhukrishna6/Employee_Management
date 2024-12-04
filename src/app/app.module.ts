@@ -12,6 +12,11 @@ import { ProfileComponent } from './view/profile/profile.component';
 import { ProfileViewComponent } from './view/profile-view/profile-view.component';
 import { ProjectComponent } from './view/project/project.component';
 import { ProjectEmployeeComponent } from './view/project-employee/project-employee.component';
+import { BadgeModule } from 'primeng/badge';
+import { InputTextModule } from 'primeng/inputtext';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
+import { StyleClassModule } from 'primeng/styleclass';
 
 @NgModule({
   imports: [
@@ -21,6 +26,14 @@ import { ProjectEmployeeComponent } from './view/project-employee/project-employ
     RatingModule,
     RippleModule,
     MenuModule,
+    CommonModule,
+    FormsModule,
+    InputTextModule,
+    BadgeModule,
+    RippleModule,
+    StyleClassModule,
+    SelectButtonModule,
+    ButtonModule
   ],
   declarations: [
     EmployeeComponent,
@@ -29,7 +42,8 @@ import { ProjectEmployeeComponent } from './view/project-employee/project-employ
     ProfileComponent,
     ProfileViewComponent,
     ProjectComponent,
-    ProjectEmployeeComponent
+    ProjectEmployeeComponent,
+    
 
 
   ]
