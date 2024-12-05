@@ -1,73 +1,61 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-// PrimeNG Modules
-import { ButtonModule } from 'primeng/button';
-import { RippleModule } from 'primeng/ripple';
-import { RatingModule } from 'primeng/rating';
-import { MenuModule } from 'primeng/menu';
-import { BadgeModule } from 'primeng/badge';
-import { InputTextModule } from 'primeng/inputtext';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { StyleClassModule } from 'primeng/styleclass';
 
-// Components
-import { EmployeeComponent } from './view/employee/employee.component';
-import { LoginComponent } from './view/login/login.component';
-import { ProfileComponent } from './view/profile/profile.component';
-import { ProfileViewComponent } from './view/profile-view/profile-view.component';
-import { ProjectComponent } from './view/project/project.component';
-import { ProjectEmployeeComponent } from './view/project-employee/project-employee.component';
-import { SidebarModule } from 'primeng/sidebar';
-import { BrowserModule } from '@angular/platform-browser';  // Only import here in root module
+import {MatButtonModule} from '@angular/material/button';
+
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidenav/sidenav.component';
+import { HomeComponent } from './home/home.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MainComponent } from './main/main.component';
+import { RouterLinkActiveExactDirective } from './main/appRouterLinkActiveExact.directive';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { TimetableComponent } from './pages/timetable/timetable.component';
 
-import { NavbarComponent } from './view/navbar/navbar.component';
-import { SidebarComponent } from './view/sidebar/sidebar.component';
-import { FooterComponent } from './view/footer/footer.component';
-
-
-
+// Import FormsModule
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonModule,
-    RippleModule,
-    RatingModule,
-    MenuModule,
-    BadgeModule,
-    InputTextModule,
-    SelectButtonModule,
-    StyleClassModule,
-    BrowserAnimationsModule, 
-    SidebarModule,
-   
-    BrowserModule
-    
-    // Removed BrowserModule from this module
-  ],
-
-  providers: [],
-  bootstrap: [AppComponent],  
   declarations: [
-    NavbarComponent,
+    AppComponent,
+    HeaderComponent,
     SidebarComponent,
-    AppComponent,  // Make sure AppComponent is declared here
-    LoginComponent,
-    EmployeeComponent,
-    ProfileViewComponent,
-    ProjectComponent,
-    ProjectEmployeeComponent,
+    HomeComponent,
+    DashboardComponent,
+    MainComponent,
+    RouterLinkActiveExactDirective,
     ProfileComponent,
-   
-   
+    TimetableComponent,
   ],
-  exports: [
-    ProfileComponent,
-   
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    // * MATERIAL IMPORTS
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDividerModule,
+    MatListModule,
+    MatButtonModule,
+    MatCardModule,
+    FormsModule,
+    MatTableModule
   ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
