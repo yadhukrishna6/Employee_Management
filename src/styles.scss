@@ -1,11 +1,23 @@
 // Define custom colors
+
+
+@import "primeflex/primeflex.css";
+  
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
 $custom-body-color: #ebebeb;  // Background color
   // Text color
 
+
 body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: $custom-body-color;
-  // color: white;
 }
+
+
 
 // You can also define styles for specific elements or classes using these colors
 // .custom-element {

@@ -36,8 +36,9 @@ export class SidebarComponent implements OnInit {
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    this.sidebarService.toggleSidebar(); // Toggle sidebar state
+    this.sidebarService.toggleSidebar(); 
   }
+  
 
 
   toggleSubmenu() {

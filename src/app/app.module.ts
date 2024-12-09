@@ -26,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { TimetableComponent } from './pages/timetable/timetable.component';
 
+
 // Import FormsModule
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TimetableComponent } from './pages/timetable/timetable.component';
     RouterLinkActiveExactDirective,
     ProfileComponent,
     TimetableComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { TimetableComponent } from './pages/timetable/timetable.component';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,MatToolbarModule, MatButtonModule, MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

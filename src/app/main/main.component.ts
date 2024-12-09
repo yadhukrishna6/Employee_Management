@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { SidebarService } from '../services/sidebar/sidebar.service';
+import { SidebarComponent } from "../layout/sidenav/sidenav.component";
+import { HeaderComponent } from "../layout/header/header.component";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.scss']
+  styleUrls: ['./main.component.scss'],
+
+ 
 })
 export class MainComponent {
 
