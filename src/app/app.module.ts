@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -25,8 +25,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { TimetableComponent } from './pages/timetable/timetable.component';
-
-
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToolbarModule } from 'primeng/toolbar';
+import { EmployeesComponent } from './employees/employees.component';
 // Import FormsModule
 @NgModule({
   declarations: [
@@ -39,13 +42,15 @@ import { TimetableComponent } from './pages/timetable/timetable.component';
     RouterLinkActiveExactDirective,
     ProfileComponent,
     TimetableComponent,
+    EmployeesComponent
+  
    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    // * MATERIAL IMPORTS
+   
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
@@ -56,7 +61,16 @@ import { TimetableComponent } from './pages/timetable/timetable.component';
     MatCardModule,
     FormsModule,
     MatTableModule,MatToolbarModule, MatButtonModule, MatButtonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    TableModule,
+    InputTextModule,
+    ToolbarModule
+   
+    
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
