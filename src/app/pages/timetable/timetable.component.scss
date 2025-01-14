@@ -1,62 +1,103 @@
-/* styles.scss */
-
-/* ... (previous styles) ... */
-
-.timetable-card {
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-
-  /* Additional styles for the timetable card */
-  background-color: #f5f5f5; /* Background color */
-  padding: 16px; /* Padding for better visual separation */
-}
-
-.timetable-card mat-card-content {
-  padding: 20px;
-}
-
-.timetable {
-  width: 100%;
-
-  th.mat-header-cell,
-  td.mat-cell {
-    font-size: 16px;
-    text-align: center;
-    padding: 8px;
-  }
-
-  th.mat-header-cell {
-    background-color: #f0f0f0;
-    font-weight: bold; /* Make course name bold */
-    font-size: 14px; /* Increase the font size of course names (adjust as needed) */
-  }
-
-  td.mat-cell {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    font-size: 16px; /* Increase the font size of cell titles (adjust as needed) */
-  }
-
-  td.mat-cell:hover {
-    background-color: #f9f9f9;
-  }
-}
+// Variables for theme customization
+$primary-color: #007ad9;
+$secondary-color: #555;
+$background-color: #f9f9f9;
+$border-color: #ddd;
+$shadow-color: rgba(0, 0, 0, 0.1);
 
 .profile-card {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  border-radius: 12px;
+  box-shadow: 0 4px 6px $shadow-color;
+  padding: 2rem;
+  background-color: #fff;
 
-.profile-header {
-  text-align: center;
-}
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 
-.profile-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid $primary-color;
+    }
 
-/* ... (previous styles) ... */
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .profile-job-title {
+      color: $secondary-color;
+      font-style: italic;
+      margin: 0.2rem 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: $primary-color;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
+
+    .status {
+      font-weight: bold;
+      color: green;
+    }
+  }
+
+  .classic-tab-view {
+    .p-tabview-nav {
+      border-bottom: 2px solid $border-color;
+      .p-tabview-nav-link {
+        color: $primary-color;
+        font-weight: bold;
+
+        &:hover {
+          background-color: lighten($primary-color, 40%);
+        }
+      }
+    }
+  }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    div {
+      font-size: 0.95rem;
+      color: $secondary-color;
+
+      strong {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .edit-button {
+    margin-top: 1rem;
+    display: block;
+    margin-left: auto;
+    background-color: $primary-color;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 0.5rem 1.5rem;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+}

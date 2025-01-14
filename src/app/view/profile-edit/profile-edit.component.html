@@ -1,0 +1,312 @@
+<div class="header-container">
+    <h1 class="page-title">Edit-Profile</h1>
+</div>
+
+<div class="surface-card p-4 shadow-2 border-round">
+    <div class="field col-12 md:col-6">
+        <img src="" class="h-8rem w-8rem" />
+    </div>
+    <div class="grid formgrid p-fluid">
+
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="firstName">FirstName</label>
+            <input id="firstName"   type="text" pInputText required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.firstName">
+                Name is required.
+            </small> -->
+        </div>
+
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="lastName">LastName</label>
+            <input id="lastName" type="text" pInputText required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.lastName">
+                Last Name is required.
+            </small> -->
+        </div>
+        <div class="field col-12 md:col-6">
+            <label htmlFor="imageUrl">Email</label>
+            <input pInputText id="imageUrl" type="text" required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.imageUrl">
+                Image URL is required.
+            </small> -->
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="Id">Employee Id</label>
+            <input id="Id" type="text" pInputText required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.id">
+                Employee Id is required.
+            </small> -->
+        </div>
+
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="Id">Qualification</label>
+            <input id="Id" type="text" pInputText required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.id">
+                Employee Id is required.
+            </small> -->
+        </div>
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="Id">Experience</label>
+            <input id="Id" type="text" pInputText required />
+            <!-- <small class="p-error" *ngIf="submitted && !entity.id">
+                Employee Id is required.
+            </small> -->
+        </div>
+
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="empType">Employee type</label>
+            <p-dropdown optionLabel="name" optionValue="value" id="empType">
+            </p-dropdown>
+        </div>
+
+        <div class="field mb-4 col-12 md:col-6">
+            <label for="hireDate">Hire Date</label>
+            <p-calendar id="hireDate" dateFormat="dd/mm/yy" required [showIcon]="true">
+            </p-calendar>
+        </div>
+        <div class="surface-border border-top-1 opacity-50 mb-3 col-12"></div>
+        <div class="tabs">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="personal-tab" data-bs-toggle="tab" data-bs-target="#personal"
+                        type="button" role="tab" aria-controls="personal" aria-selected="true">
+                        <i class="pi pi-user"></i> Personal Information
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="bank-tab" data-bs-toggle="tab" data-bs-target="#bank" type="button"
+                        role="tab" aria-controls="bank" aria-selected="false">
+                        <i class="pi pi-credit-card"></i> Bank Details
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="work-tab" data-bs-toggle="tab" data-bs-target="#work" type="button"
+                        role="tab" aria-controls="work" aria-selected="false">
+                        <i class="pi pi-briefcase"></i> Work Information
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <!-- Personal Information -->
+                <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                    <div class="grid formgrid p-fluid">
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Aadhaar No">Aadhaar No</label>
+                            <input id="Aadhaar No" type="text" pInputText required>
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.lastName">
+                                Aadhaar No is required.
+                            </small> -->
+                        </div>
+
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="gender">Gender</label>
+                            <p-dropdown optionLabel="name" optionValue="value" id="gender">
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="mobile">Mobile</label>
+                            <input id="mobile" type="text" pInputText="" required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.mobile">
+                                Mobile No is required.
+                            </small> -->
+                        </div>
+
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="contactTel">contactTel</label>
+                            <input id="contactTel" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.contactTel">
+                                contact No is required.
+                            </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="officeTel">officeTel</label>
+                            <input id="officeTel" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.officeTel">
+                                office_tel is required.
+                            </small> -->
+                        </div>
+
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="religion">Religion</label>
+                            <input id="religion" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.religion">
+                                    Card No is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="city">City</label>
+                            <input id="city" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.city">
+                                City is required.
+                            </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="address">Address </label>
+                            <input id="address" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.address">
+                                Address is required.
+                            </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="postcode">postcode</label>
+                            <input id="postcode" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.postcode">
+                                Pincode is required.
+                            </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="gender">Maritial Status</label>
+                            <p-dropdown optionLabel="name" optionValue="value" id="gender">
+                            </p-dropdown>
+
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="birthday">Birthday</label>
+                            <p-calendar dateFormat="dd/mm/yy" id="birthday" [showIcon]="true">
+                            </p-calendar>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="national">Nationality</label>
+                            <input id="national" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.national">
+                                Nationality is required.
+                            </small> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bank Details -->
+                <div class="tab-pane fade" id="bank" role="tabpanel" aria-labelledby="bank-tab">
+                    <div class="grid formgrid p-fluid">
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Bank Name</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Account Number</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Branch</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Bank IFSCCode </label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Bank Address</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Country</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">State</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">City</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                    Email is required.
+                                </small> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Work Information -->
+                <div class="tab-pane fade" id="work" role="tabpanel" aria-labelledby="work-tab">
+                    <div class="grid formgrid p-fluid">
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Department</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Shift Information</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Employee Type</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Reporting Manager</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                Email is required.
+                            </small> -->
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Work Type</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="Department">Job Position</label>
+                            <p-dropdown optionLabel="deptName" optionValue="id" filterBy="deptName"
+                                [showClear]="true">
+                                <ng-template pTemplate="selectedItem" let-selectedOption>
+                                    {{ selectedOption?.deptName }}
+                                </ng-template>
+                            </p-dropdown>
+                        </div>
+                        <div class="field mb-4 col-12 md:col-4">
+                            <label for="email">Company</label>
+                            <input id="email" type="text" pInputText required />
+                            <!-- <small class="p-error" *ngIf="submitted && !entity.email">
+                                Email is required.
+                            </small> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

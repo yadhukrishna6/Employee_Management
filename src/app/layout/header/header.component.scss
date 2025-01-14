@@ -4,7 +4,7 @@
 
 /* toolbar.component.css */
 // .custom-toolbar {
-//   background-color: #f0f0f0; /* Background color of the toolbar */
+//   background-color: #000000; /* Background color of the toolbar */
 //   border-radius: 10px; /* Adjust the border-radius for a softer look */
 //   box-shadow: 5px 5px 10px #b9b9b9, -5px -5px 10px #ffffff; /* Neumorphism shadow */
 // }
@@ -20,23 +20,23 @@
 
 /* toolbar.component.css */
 // .custom-toolbar {
-//   background-color: #f0f0f0; /* Background color of the toolbar */
+//   background-color: #000000; /* Background color of the toolbar */
 //   border-radius: 10px; /* Adjust the border-radius for a softer look */
 //   box-shadow: 5px 5px 10px #b9b9b9, -5px -5px 10px #ffffff; /* Neumorphism shadow */
 // }
 .custom-toolbar{
-  background-color: #131313;
+  background-color: #FFFFFF;
 }
 .mat-toolbar-single-row {
   
   padding: 6px 18px;
 }
 .mat-toolbar{
-  color: #f0f0f0 !important;
+  color: #000000 !important;
 }
 .mat-icon-button {
-  color: #f0f0f0 !important;
-  background-color: #f0f0f0; /* Background color of the button */
+  color: #000000 !important;
+  background-color: #000000; /* Background color of the button */
   border-radius: 50%; /* Make the button round */
   width: 40px; /* Adjust the button width as needed */
   height: 40px; /* Adjust the button height as needed */
@@ -83,7 +83,7 @@
 
 
 .notification-icon {
-  color: #f0f0f0 !important;
+  color: #000000 !important;
   transition: transform 0.2s ease; /* Add smooth transition effect */
 
   &:hover {
@@ -93,9 +93,9 @@
 
 body {
 
-  color: white !important;
+  color: #000000 !important;
 }
 
 .mat-mdc-icon-button{
-  color: white !important;
+  color:  #000000 !important;
 }

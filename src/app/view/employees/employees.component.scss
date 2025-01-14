@@ -1,0 +1,162 @@
+// /* styles.scss */
+// .p-toolbar-group-center {
+//     display: flex;
+//     justify-content: space-between; 
+//     align-items: center; 
+//     gap: 10px; 
+//     height: 3rem;  
+//   }
+  
+//   .p-input-icon-left {
+//     display: flex;
+//     align-items: center;  
+//   }
+  
+//   .p-inputtext {
+//     min-width: 200px;  
+//     padding: -1.5rem;  
+//   }
+  
+//   .button-container {
+//     margin-left: auto;  
+//   }
+//   .p-button-success {
+//     border-radius: 7px;  // Set the same border radius for the Create button
+//     padding: 0.5rem 1rem;  // Adjust padding for the button to match the input
+//   }
+//   .p-button-secondary{
+//     border-radius: 7px;  // Set the same border radius for the Create button
+//     padding: 0.5rem 1rem;
+//   }
+.p-toolbar-group-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem; /* Adjust as needed */
+}
+/* Container for the entire header section */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    border-bottom: 1px solid #e6e6e6;
+  
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Page title styling */
+  .page-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+  }
+  
+  /* Action bar container */
+  .action-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Search input container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 25px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-container input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #666;
+    width: 200px;
+  }
+  
+  /* Icon buttons for toggle view */
+  .view-toggle {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .toggle-btn {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-btn i {
+    font-size: 18px;
+    color: #666666;
+  }
+  
+  .toggle-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .toggle-btn.active i {
+    color: #ffffff;
+  }
+  
+  /* Filter, Group By, Actions buttons */
+  .filter-btn,
+  .groupby-btn,
+  .actions-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 8px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #666666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-btn i,
+  .groupby-btn i,
+  .actions-btn i {
+    font-size: 16px;
+  }
+  
+  .filter-btn:hover,
+  .groupby-btn:hover,
+  .actions-btn:hover {
+    background: #f0f0f0;
+    border-color: #b3b3b3;
+  }
+  
+  /* Create button */
+  .create-btn {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(255, 87, 34, 0.3);
+  }
+  
+  .create-btn:hover {
+    background: #e64a19;
+  }
+  

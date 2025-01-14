@@ -1,0 +1,39 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 30px;
+    border-bottom: 1px solid #e6e6e6;
+    font-family: 'Arial', sans-serif;
+  
+  }
+  .page-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+  }
+  // .surface-card {
+  //   input {
+  //     border-radius: 0 !important;
+  //     height: 40px !important;
+  //     border-color: #D2D2D2;
+  //   }
+  //   textarea{
+  //     border-color: #D2D2D2;
+  //   }
+   
+  // }
+
+
+
+ .custom-dropdown .p-dropdown-label {
+  border-radius: 0px !important;
+}
+
+.custom-dropdown .p-dropdown-panel {
+  border-radius: 0px !important;
+}
+.field.grid, .formgrid.grid {
+  margin-top: 15px;
+}

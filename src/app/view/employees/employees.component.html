@@ -1,0 +1,38 @@
+<div class="header-container">
+    <h1 class="page-title">Employees</h1>
+    <div class="action-bar">
+        <div class="search-container">
+            <i class="pi pi-search"></i>
+            <input type="text" placeholder="Search employees..." />
+        </div>
+        <button class="filter-btn">
+            <i class="pi pi-filter"></i> Filter
+        </button>
+        <button class="groupby-btn">
+            <i class="pi pi-folder"></i> Group By
+        </button>
+        <button class="actions-btn">
+            Actions <i class="pi pi-caret-down"></i>
+        </button>
+        <button class="create-btn" (click)="navigateToEditProfile()">
+            + Create
+        </button>
+    </div>
+</div>
+
+<br>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 40rem;">
+    <div class="col-3 md:col-6 xl:col-3 p-1">
+        <div class="surface-card shadow-2 border-round p-4" (click)="navigateToEditProfile()"
+            style="cursor: pointer;">
+            <div class="flex surface-border">
+                <img src="https://img.freepik.com/free-photo/afro-man_1368-2735.jpg?ga=GA1.2.386245186.1699518153&semt=ais_hybrid"
+                    style="width: 70px; height: 70px" class="mr-3" />
+                <div class="flex flex-column align-items-start">
+                    <span class="text-xl text-900 font-medium mb-1">Yadhu Varghese</span>
+                    <span class="bg-purple-50 text-purple-400 border-round inline-flex py-1 px-2 text-sm">Manager</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
