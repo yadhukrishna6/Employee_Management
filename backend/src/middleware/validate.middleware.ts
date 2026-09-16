@@ -4,10 +4,19 @@ import { sendError } from '../utils/response';
 
 export const validateRequest = (schema: AnyZodObject) => {
   return async (req: Request, res: Response, next: NextFunction) => {
-    try {
+      // Sanitize query params: prune empty strings so optional validations work seamlessly
+      const sanitizedQuery: Record<string, any> = {};
+      if (req.query) {
+        for (const [key, value] of Object.entries(req.query)) {
+          if (value !== '' && value !== undefined && value !== null) {
+            sanitizedQuery[key] = value;
+          }
+        }
+      }
+
       const parsed = await schema.parseAsync({
         body: req.body,
-        query: req.query,
+        query: sanitizedQuery,
         params: req.params,
       });
 

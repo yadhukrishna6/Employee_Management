@@ -18,11 +18,11 @@ export const listAttendanceSchema = z.object({
   query: z.object({
     page: z.string().optional().default('1'),
     limit: z.string().optional().default('20'),
-    startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
-    endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
-    status: z.nativeEnum(AttendanceStatus).optional(),
-    employeeId: z.string().uuid().optional(),
-    departmentId: z.string().uuid().optional(),
+    startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().or(z.literal('')),
+    endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().or(z.literal('')),
+    status: z.nativeEnum(AttendanceStatus).optional().or(z.literal('')),
+    employeeId: z.string().uuid().optional().or(z.literal('')),
+    departmentId: z.string().uuid().optional().or(z.literal('')),
   }),
 });
 

@@ -26,10 +26,15 @@ export const Attendance: React.FC = () => {
   // Fetch Attendance records
   const { data, isLoading } = useQuery({
     queryKey: ['attendance', isEmployee, page, startDate, endDate, status],
-    queryFn: () =>
-      isEmployee
-        ? attendanceService.getMy({ page, limit: 15, startDate, endDate })
-        : attendanceService.getAll({ page, limit: 15, startDate, endDate, status }),
+    queryFn: () => {
+      const params: any = { page, limit: 15 };
+      if (startDate) params.startDate = startDate;
+      if (endDate) params.endDate = endDate;
+      if (status) params.status = status;
+      return isEmployee
+        ? attendanceService.getMy(params)
+        : attendanceService.getAll(params);
+    },
   });
 
   // Fetch Monthly summary
