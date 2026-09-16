@@ -42,8 +42,9 @@ export const createApp = (): Express => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // API Routes
+  // API Routes (supports /api and root routes)
   app.use('/api', apiRouter);
+  app.use('/', apiRouter);
 
   // 404 Handler
   app.use('*', (req, res) => {

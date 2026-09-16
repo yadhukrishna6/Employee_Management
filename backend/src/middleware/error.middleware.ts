@@ -46,7 +46,7 @@ export const errorHandler = (
   // Default internal server error
   return sendError(
     res,
-    process.env.NODE_ENV === 'production' ? 'Internal server error' : err.message || 'Internal server error',
+    err.message || 'Internal server error',
     500
   );
 };
