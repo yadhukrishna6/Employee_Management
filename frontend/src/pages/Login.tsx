@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   Eye,
   EyeOff,
@@ -405,8 +405,21 @@ export const Login: React.FC = () => {
             </button>
           </form>
 
+          {/* Create Account / Register Organization Link */}
+          <div className="text-center pt-1 border-t border-slate-900/80">
+            <span className="text-xs text-slate-400">
+              New to Emplyo?{' '}
+              <Link
+                to="/register"
+                className="font-semibold text-blue-400 hover:text-blue-300 underline underline-offset-4 transition-colors"
+              >
+                Create an Organization Account
+              </Link>
+            </span>
+          </div>
+
           {/* Footer Note */}
-          <div className="text-center pt-2">
+          <div className="text-center">
             <p className="text-[11px] text-slate-500">
               Need assistance? Contact your organization administrator or IT desk.
             </p>

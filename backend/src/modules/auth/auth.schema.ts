@@ -11,12 +11,12 @@ export const registerSchema = z.object({
       .max(20, 'Organization code must not exceed 20 characters')
       .regex(/^[A-Z0-9_-]+$/i, 'Organization code can only contain letters, numbers, hyphens, and underscores'),
     organizationEmail: z.string().email('Invalid organization email address'),
-    phone: z.string().optional(),
+    phone: z.string().optional().or(z.literal('')),
     website: z.string().url('Invalid website URL').optional().or(z.literal('')),
-    address: z.string().optional(),
-    city: z.string().optional(),
-    state: z.string().optional(),
-    country: z.string().optional(),
+    address: z.string().optional().or(z.literal('')),
+    city: z.string().optional().or(z.literal('')),
+    state: z.string().optional().or(z.literal('')),
+    country: z.string().optional().or(z.literal('')),
 
     // Admin user fields
     adminEmail: z.string().email('Invalid admin email address'),

@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { ProtectedRoute } from './ProtectedRoute';
 import { DashboardLayout } from '../layouts/DashboardLayout';
 import { Login } from '../pages/Login';
+import { Register } from '../pages/Register';
 import { Dashboard } from '../pages/Dashboard';
 import { Employees } from '../pages/Employees';
 import { EmployeeDetails } from '../pages/EmployeeDetails';
@@ -20,8 +21,9 @@ import { OrgChart } from '../pages/OrgChart';
 export const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* Public Route */}
+      {/* Public Routes */}
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
       {/* Protected Layout Routes */}
       <Route element={<ProtectedRoute />}>
