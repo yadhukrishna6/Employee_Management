@@ -58,13 +58,16 @@ export const Sidebar: React.FC<{ isOpen: boolean; onClose: () => void }> = ({
         {/* Brand Header */}
         <div className="h-16 flex items-center px-6 border-b border-slate-800/80">
           <div className="flex items-center space-x-3">
-            <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold shadow-md shadow-blue-500/20">
-              EM
+            <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-base shadow-md shadow-blue-500/25">
+              E
             </div>
             <div>
-              <span className="font-bold text-white text-sm tracking-tight block">Enterprise EMS</span>
-              <span className="text-[10px] text-slate-400 font-medium block truncate max-w-[140px]">
-                {organization?.name || 'SaaS Platform'}
+              <div className="flex items-center space-x-1.5">
+                <span className="font-extrabold text-white text-base tracking-tight block">Emplyo</span>
+                <span className="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">EMS</span>
+              </div>
+              <span className="text-[10px] text-slate-400 font-medium block truncate max-w-[130px]">
+                {organization?.name || 'Enterprise Cloud'}
               </span>
             </div>
           </div>

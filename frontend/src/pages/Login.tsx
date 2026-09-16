@@ -144,15 +144,18 @@ export const Login: React.FC = () => {
 
         {/* Brand Header */}
         <div className="relative z-10 flex items-center space-x-3">
-          <div className="h-9 w-9 rounded-lg bg-white flex items-center justify-center text-slate-950 font-black text-sm tracking-tighter shadow-md">
-            EM
+          <div className="h-9 w-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-lg tracking-tighter shadow-lg shadow-blue-600/30">
+            E
           </div>
           <div>
-            <span className="font-semibold text-white text-sm tracking-tight block">
-              Enterprise Suite
-            </span>
+            <div className="flex items-center space-x-1.5">
+              <span className="font-extrabold text-white text-base tracking-tight block">
+                Emplyo
+              </span>
+              <span className="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">Enterprise</span>
+            </div>
             <span className="text-[11px] text-slate-400 font-medium block">
-              Workforce & Human Capital Operations
+              Modern Workforce & Human Capital Operations
             </span>
           </div>
         </div>
@@ -161,7 +164,7 @@ export const Login: React.FC = () => {
         <div className="relative z-10 max-w-lg my-auto py-12">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-6">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Multi-Tenant Architecture v2.0</span>
+            <span>Emplyo Cloud Suite v2.0</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white leading-[1.15]">
@@ -209,6 +212,12 @@ export const Login: React.FC = () => {
         <div className="w-full max-w-md space-y-7">
           {/* Header */}
           <div>
+            <div className="flex items-center space-x-2.5 lg:hidden mb-4">
+              <div className="h-8 w-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-black text-sm shadow-md shadow-blue-600/30">
+                E
+              </div>
+              <span className="font-extrabold text-white text-lg tracking-tight">Emplyo</span>
+            </div>
             <h2 className="text-2xl font-bold tracking-tight text-white">
               Sign in to your portal
             </h2>
