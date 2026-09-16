@@ -39,6 +39,11 @@ export interface Employee {
   lastName: string;
   email: string;
   phone?: string;
+  profileImage?: string | null;
+  address?: string;
+  city?: string;
+  state?: string;
+  country?: string;
   dateOfBirth?: string;
   gender?: string;
   designation: string;

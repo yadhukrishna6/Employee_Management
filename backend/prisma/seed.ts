@@ -113,7 +113,7 @@ async function main() {
   });
 
   // 6. Create Employees & Users for each Role
-  // 6a. Organization Admin
+  // 6a. Organization Admin (Alice Vance - Executive Root)
   const adminEmp = await prisma.employee.create({
     data: {
       organizationId: org.id,
@@ -123,6 +123,7 @@ async function main() {
       email: 'admin@example.com',
       phone: '+1 555-0101',
       designation: 'VP of Operations',
+      profileImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=256&auto=format&fit=crop&q=80',
       departmentId: hrDept.id,
       joiningDate: new Date('2023-01-15'),
       employmentType: EmploymentType.FULL_TIME,
@@ -140,7 +141,7 @@ async function main() {
     },
   });
 
-  // 6b. HR Lead
+  // 6b. HR Lead (Hannah Reed - Reports to Alice)
   const hrEmp = await prisma.employee.create({
     data: {
       organizationId: org.id,
@@ -150,7 +151,9 @@ async function main() {
       email: 'hr@example.com',
       phone: '+1 555-0102',
       designation: 'Senior HR Manager',
+      profileImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=256&auto=format&fit=crop&q=80',
       departmentId: hrDept.id,
+      managerId: adminEmp.id,
       joiningDate: new Date('2023-03-01'),
       employmentType: EmploymentType.FULL_TIME,
       status: EmployeeStatus.ACTIVE,
@@ -173,7 +176,7 @@ async function main() {
     data: { managerId: hrEmp.id },
   });
 
-  // 6c. Engineering Manager
+  // 6c. Engineering Manager (Marcus Sterling - Reports to Alice)
   const managerEmp = await prisma.employee.create({
     data: {
       organizationId: org.id,
@@ -183,7 +186,9 @@ async function main() {
       email: 'manager@example.com',
       phone: '+1 555-0103',
       designation: 'Engineering Manager',
+      profileImage: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=256&auto=format&fit=crop&q=80',
       departmentId: engineeringDept.id,
+      managerId: adminEmp.id,
       joiningDate: new Date('2023-02-10'),
       employmentType: EmploymentType.FULL_TIME,
       status: EmployeeStatus.ACTIVE,
@@ -206,7 +211,7 @@ async function main() {
     data: { managerId: managerEmp.id },
   });
 
-  // 6d. Software Engineer (Subordinate to Manager)
+  // 6d. Software Engineer (Ethan Cole - Reports to Marcus)
   const devEmp = await prisma.employee.create({
     data: {
       organizationId: org.id,
@@ -216,6 +221,7 @@ async function main() {
       email: 'employee@example.com',
       phone: '+1 555-0104',
       designation: 'Senior Full Stack Engineer',
+      profileImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=256&auto=format&fit=crop&q=80',
       departmentId: engineeringDept.id,
       managerId: managerEmp.id,
       joiningDate: new Date('2023-06-01'),
@@ -234,11 +240,30 @@ async function main() {
     },
   });
 
+  // 6e. Software Engineer (Yadhu Krishna - Reports to Alice)
+  const yadhuEmp = await prisma.employee.create({
+    data: {
+      organizationId: org.id,
+      employeeCode: 'EMP-005',
+      firstName: 'Yadhu',
+      lastName: 'krishna',
+      email: 'yadhu@example.com',
+      phone: '+1 555-0105',
+      designation: 'Software Engineering',
+      profileImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=256&auto=format&fit=crop&q=80',
+      departmentId: engineeringDept.id,
+      managerId: adminEmp.id,
+      joiningDate: new Date('2023-07-01'),
+      employmentType: EmploymentType.FULL_TIME,
+      status: EmployeeStatus.ACTIVE,
+    },
+  });
+
   console.log('👥 Employees and user accounts seeded successfully.');
 
   // 7. Seed Leave Balances for 2026
   const currentYear = new Date().getFullYear();
-  const allEmployees = [adminEmp, hrEmp, managerEmp, devEmp];
+  const allEmployees = [adminEmp, hrEmp, managerEmp, devEmp, yadhuEmp];
   const allLeaveTypes = [casualLeave, sickLeave, annualLeave];
 
   for (const emp of allEmployees) {
