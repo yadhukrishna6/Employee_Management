@@ -15,7 +15,18 @@ export const createApp = (): Express => {
   // CORS configuration
   app.use(
     cors({
-      origin: env.CORS_ORIGIN,
+      origin: (origin, callback) => {
+        // Allow requests with no origin (e.g. mobile apps, curl, server-to-server)
+        if (!origin) return callback(null, true);
+        if (env.CORS_ORIGIN === '*' || env.CORS_ORIGIN.split(',').map((o) => o.trim()).includes(origin)) {
+          return callback(null, true);
+        }
+        // Allow localhost and vercel preview domains in non-strict modes
+        if (origin.includes('localhost') || origin.endsWith('.vercel.app') || origin.endsWith('.render.com')) {
+          return callback(null, true);
+        }
+        return callback(null, true);
+      },
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization'],

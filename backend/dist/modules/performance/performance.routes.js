@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.performanceRouter = void 0;
+const express_1 = require("express");
+const performance_controller_1 = require("./performance.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const role_middleware_1 = require("../../middleware/role.middleware");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const performance_schema_1 = require("./performance.schema");
+const client_1 = require("@prisma/client");
+exports.performanceRouter = (0, express_1.Router)();
+exports.performanceRouter.use(auth_middleware_1.authenticate);
+exports.performanceRouter.get('/my', performance_controller_1.performanceController.getMy);
+exports.performanceRouter.get('/:id', performance_controller_1.performanceController.getById);
+exports.performanceRouter.post('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR, client_1.UserRole.MANAGER), (0, validate_middleware_1.validateRequest)(performance_schema_1.createReviewSchema), performance_controller_1.performanceController.create);
+exports.performanceRouter.put('/:id', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR, client_1.UserRole.MANAGER), (0, validate_middleware_1.validateRequest)(performance_schema_1.updateReviewSchema), performance_controller_1.performanceController.update);
+exports.performanceRouter.get('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR, client_1.UserRole.MANAGER), (0, validate_middleware_1.validateRequest)(performance_schema_1.listReviewsSchema), performance_controller_1.performanceController.getAll);

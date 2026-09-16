@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.departmentRouter = void 0;
+const express_1 = require("express");
+const department_controller_1 = require("./department.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const role_middleware_1 = require("../../middleware/role.middleware");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const department_schema_1 = require("./department.schema");
+const client_1 = require("@prisma/client");
+exports.departmentRouter = (0, express_1.Router)();
+exports.departmentRouter.use(auth_middleware_1.authenticate);
+exports.departmentRouter.get('/', (0, validate_middleware_1.validateRequest)(department_schema_1.listDepartmentsSchema), department_controller_1.departmentController.getAll);
+exports.departmentRouter.get('/:id', department_controller_1.departmentController.getById);
+exports.departmentRouter.post('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR), (0, validate_middleware_1.validateRequest)(department_schema_1.createDepartmentSchema), department_controller_1.departmentController.create);
+exports.departmentRouter.put('/:id', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR), (0, validate_middleware_1.validateRequest)(department_schema_1.updateDepartmentSchema), department_controller_1.departmentController.update);
+exports.departmentRouter.delete('/:id', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR), department_controller_1.departmentController.delete);

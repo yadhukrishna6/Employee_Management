@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.attendanceRouter = void 0;
+const express_1 = require("express");
+const attendance_controller_1 = require("./attendance.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const role_middleware_1 = require("../../middleware/role.middleware");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const attendance_schema_1 = require("./attendance.schema");
+const client_1 = require("@prisma/client");
+exports.attendanceRouter = (0, express_1.Router)();
+exports.attendanceRouter.use(auth_middleware_1.authenticate);
+exports.attendanceRouter.post('/check-in', (0, validate_middleware_1.validateRequest)(attendance_schema_1.checkInSchema), attendance_controller_1.attendanceController.checkIn);
+exports.attendanceRouter.post('/check-out', (0, validate_middleware_1.validateRequest)(attendance_schema_1.checkOutSchema), attendance_controller_1.attendanceController.checkOut);
+exports.attendanceRouter.get('/my', (0, validate_middleware_1.validateRequest)(attendance_schema_1.listAttendanceSchema), attendance_controller_1.attendanceController.getMy);
+exports.attendanceRouter.get('/summary', (0, validate_middleware_1.validateRequest)(attendance_schema_1.attendanceSummarySchema), attendance_controller_1.attendanceController.getSummary);
+exports.attendanceRouter.get('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR, client_1.UserRole.MANAGER), (0, validate_middleware_1.validateRequest)(attendance_schema_1.listAttendanceSchema), attendance_controller_1.attendanceController.getAll);
+exports.attendanceRouter.get('/employee/:employeeId', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN, client_1.UserRole.HR, client_1.UserRole.MANAGER), (0, validate_middleware_1.validateRequest)(attendance_schema_1.listAttendanceSchema), attendance_controller_1.attendanceController.getByEmployee);

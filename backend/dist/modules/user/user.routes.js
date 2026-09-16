@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRouter = void 0;
+const express_1 = require("express");
+const user_controller_1 = require("./user.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const role_middleware_1 = require("../../middleware/role.middleware");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const user_schema_1 = require("./user.schema");
+const client_1 = require("@prisma/client");
+exports.userRouter = (0, express_1.Router)();
+exports.userRouter.use(auth_middleware_1.authenticate);
+exports.userRouter.use((0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN));
+exports.userRouter.post('/', (0, validate_middleware_1.validateRequest)(user_schema_1.createUserSchema), user_controller_1.userController.create);
+exports.userRouter.get('/', (0, validate_middleware_1.validateRequest)(user_schema_1.listUsersSchema), user_controller_1.userController.getAll);
+exports.userRouter.get('/:id', user_controller_1.userController.getById);
+exports.userRouter.put('/:id', (0, validate_middleware_1.validateRequest)(user_schema_1.updateUserSchema), user_controller_1.userController.update);
+exports.userRouter.post('/:id/reset-password', (0, validate_middleware_1.validateRequest)(user_schema_1.resetUserPasswordSchema), user_controller_1.userController.resetPassword);

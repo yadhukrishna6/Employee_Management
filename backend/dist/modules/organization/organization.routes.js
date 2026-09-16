@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.organizationRouter = void 0;
+const express_1 = require("express");
+const organization_controller_1 = require("./organization.controller");
+const auth_middleware_1 = require("../../middleware/auth.middleware");
+const role_middleware_1 = require("../../middleware/role.middleware");
+const validate_middleware_1 = require("../../middleware/validate.middleware");
+const organization_schema_1 = require("./organization.schema");
+const client_1 = require("@prisma/client");
+exports.organizationRouter = (0, express_1.Router)();
+exports.organizationRouter.use(auth_middleware_1.authenticate);
+exports.organizationRouter.post('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN), (0, validate_middleware_1.validateRequest)(organization_schema_1.createOrganizationSchema), organization_controller_1.organizationController.create);
+exports.organizationRouter.get('/', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN), (0, validate_middleware_1.validateRequest)(organization_schema_1.listOrganizationsSchema), organization_controller_1.organizationController.getAll);
+exports.organizationRouter.patch('/:id/status', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN), (0, validate_middleware_1.validateRequest)(organization_schema_1.updateOrgStatusSchema), organization_controller_1.organizationController.updateStatus);
+exports.organizationRouter.get('/:id', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN), (0, validate_middleware_1.validateRequest)(organization_schema_1.getOrgParamsSchema), organization_controller_1.organizationController.getById);
+exports.organizationRouter.put('/:id', (0, role_middleware_1.authorize)(client_1.UserRole.SUPER_ADMIN, client_1.UserRole.ORGANIZATION_ADMIN), (0, validate_middleware_1.validateRequest)(organization_schema_1.updateOrganizationSchema), organization_controller_1.organizationController.update);
