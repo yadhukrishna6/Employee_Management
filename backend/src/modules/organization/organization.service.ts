@@ -19,8 +19,16 @@ export class OrganizationService {
 
     const org = await prisma.organization.create({
       data: {
-        ...input,
+        name: input.name,
         code: input.code.toUpperCase(),
+        email: input.email,
+        phone: input.phone,
+        website: input.website,
+        address: input.address,
+        city: input.city,
+        state: input.state,
+        country: input.country,
+        status: input.status,
       },
     });
 
