@@ -12,14 +12,16 @@ import { Select } from '../components/ui/Select';
 import { Avatar } from '../components/ui/Avatar';
 
 export const Attendance: React.FC = () => {
-  const { role } = useAuth();
+  const { role, user } = useAuth();
   const queryClient = useQueryClient();
   const [page, setPage] = useState<number>(1);
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
   const [status, setStatus] = useState<string>('');
+  const [actionMessage, setActionMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   const isEmployee = role === 'EMPLOYEE';
+  const hasEmployeeProfile = !!user?.employeeId;
 
   // Fetch Attendance records
   const { data, isLoading } = useQuery({
@@ -36,12 +38,37 @@ export const Attendance: React.FC = () => {
     queryFn: () => attendanceService.getSummary(),
   });
 
+  // Check today's personal attendance
+  const { data: myTodayData } = useQuery({
+    queryKey: ['my-today-attendance'],
+    queryFn: () => attendanceService.getMy({ limit: 1 }),
+    enabled: hasEmployeeProfile,
+  });
+
+  const latestMyRecord = myTodayData?.data?.[0];
+  const isTodayRecord =
+    latestMyRecord &&
+    new Date(latestMyRecord.date).toISOString().split('T')[0] ===
+      new Date().toISOString().split('T')[0];
+  const isCheckedIn = isTodayRecord && !!latestMyRecord?.checkIn;
+  const isCheckedOut = isTodayRecord && !!latestMyRecord?.checkOut;
+
   // Check In Mutation
   const checkInMutation = useMutation({
     mutationFn: () => attendanceService.checkIn(),
     onSuccess: () => {
+      setActionMessage({ text: 'Checked in successfully! Have a productive day.', type: 'success' });
       queryClient.invalidateQueries({ queryKey: ['attendance'] });
       queryClient.invalidateQueries({ queryKey: ['attendance-summary'] });
+      queryClient.invalidateQueries({ queryKey: ['my-today-attendance'] });
+      setTimeout(() => setActionMessage(null), 4000);
+    },
+    onError: (err: any) => {
+      setActionMessage({
+        text: err.response?.data?.message || 'Failed to check in. Please try again.',
+        type: 'error',
+      });
+      setTimeout(() => setActionMessage(null), 4000);
     },
   });
 
@@ -49,8 +76,18 @@ export const Attendance: React.FC = () => {
   const checkOutMutation = useMutation({
     mutationFn: () => attendanceService.checkOut(),
     onSuccess: () => {
+      setActionMessage({ text: 'Checked out successfully! Total hours recorded.', type: 'success' });
       queryClient.invalidateQueries({ queryKey: ['attendance'] });
       queryClient.invalidateQueries({ queryKey: ['attendance-summary'] });
+      queryClient.invalidateQueries({ queryKey: ['my-today-attendance'] });
+      setTimeout(() => setActionMessage(null), 4000);
+    },
+    onError: (err: any) => {
+      setActionMessage({
+        text: err.response?.data?.message || 'Failed to check out. Please try again.',
+        type: 'error',
+      });
+      setTimeout(() => setActionMessage(null), 4000);
     },
   });
 
@@ -144,25 +181,52 @@ export const Attendance: React.FC = () => {
           <h1 className="text-2xl font-bold text-slate-900">Attendance Tracker</h1>
           <p className="text-sm text-slate-500">Monitor daily working hours and attendance logs</p>
         </div>
-        {isEmployee && (
-          <div className="flex space-x-3">
-            <Button
-              variant="primary"
-              isLoading={checkInMutation.isPending}
-              onClick={() => checkInMutation.mutate()}
-            >
-              <Clock className="w-4 h-4 mr-2" /> Punch In
-            </Button>
-            <Button
-              variant="danger"
-              isLoading={checkOutMutation.isPending}
-              onClick={() => checkOutMutation.mutate()}
-            >
-              <Clock className="w-4 h-4 mr-2" /> Punch Out
-            </Button>
+        {hasEmployeeProfile && (
+          <div className="flex items-center space-x-3">
+            {!isCheckedIn ? (
+              <Button
+                variant="primary"
+                isLoading={checkInMutation.isPending}
+                onClick={() => checkInMutation.mutate()}
+              >
+                <Clock className="w-4 h-4 mr-2" /> Punch In
+              </Button>
+            ) : !isCheckedOut ? (
+              <Button
+                variant="danger"
+                isLoading={checkOutMutation.isPending}
+                onClick={() => checkOutMutation.mutate()}
+              >
+                <Clock className="w-4 h-4 mr-2" /> Punch Out
+              </Button>
+            ) : (
+              <span className="inline-flex items-center px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">
+                <CheckCircle2 className="w-4 h-4 mr-1.5 text-emerald-600" /> Completed Today ({latestMyRecord?.workingHours || 0} hrs)
+              </span>
+            )}
           </div>
         )}
       </div>
+
+      {/* Action Notification Banner */}
+      {actionMessage && (
+        <div
+          className={`p-3.5 rounded-xl border flex items-center justify-between text-xs font-medium animate-fadeIn ${
+            actionMessage.type === 'success'
+              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+              : 'bg-rose-50 text-rose-800 border-rose-200'
+          }`}
+        >
+          <div className="flex items-center space-x-2">
+            {actionMessage.type === 'success' ? (
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+            ) : (
+              <XCircle className="w-4 h-4 text-rose-600 shrink-0" />
+            )}
+            <span>{actionMessage.text}</span>
+          </div>
+        </div>
+      )}
 
       {/* Summary Cards */}
       {s && (
