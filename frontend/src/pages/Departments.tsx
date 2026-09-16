@@ -11,6 +11,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Modal } from '../components/ui/Modal';
+import { Avatar } from '../components/ui/Avatar';
 import { LoadingSkeleton } from '../components/ui/LoadingSkeleton';
 
 const createDeptSchema = z.object({
@@ -99,13 +100,27 @@ export const Departments: React.FC = () => {
             </p>
 
             <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-              <div className="flex items-center text-slate-600">
-                <UserCheck className="w-4 h-4 mr-1 text-slate-400" />
-                <span>
-                  {dept.manager
-                    ? `${dept.manager.firstName} ${dept.manager.lastName}`
-                    : 'No Manager Assigned'}
-                </span>
+              <div className="flex items-center space-x-2 text-slate-600 truncate mr-2">
+                {dept.manager ? (
+                  <>
+                    <Avatar
+                      src={dept.manager.profileImage}
+                      firstName={dept.manager.firstName}
+                      lastName={dept.manager.lastName}
+                      employeeCode={dept.manager.employeeCode}
+                      email={dept.manager.email}
+                      size="xs"
+                    />
+                    <span className="truncate font-medium text-slate-800">
+                      {dept.manager.firstName} {dept.manager.lastName}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <UserCheck className="w-4 h-4 text-slate-400" />
+                    <span className="text-slate-400">No Manager</span>
+                  </>
+                )}
               </div>
               <div className="flex items-center font-semibold text-slate-700">
                 <Users className="w-4 h-4 mr-1 text-blue-500" />

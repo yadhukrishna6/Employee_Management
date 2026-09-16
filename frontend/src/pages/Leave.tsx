@@ -13,6 +13,7 @@ import { Badge } from '../components/ui/Badge';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Modal } from '../components/ui/Modal';
+import { Avatar } from '../components/ui/Avatar';
 
 const applyLeaveSchema = z.object({
   leaveTypeId: z.string().min(1, 'Please select a leave type'),
@@ -110,13 +111,23 @@ export const Leave: React.FC = () => {
           {
             header: 'Employee',
             cell: (req: LeaveRequest) => (
-              <div>
-                <span className="font-semibold text-slate-900 block text-xs">
-                  {req.employee?.firstName} {req.employee?.lastName}
-                </span>
-                <span className="text-[10px] text-slate-400 block font-mono">
-                  {req.employee?.employeeCode} • {req.employee?.department?.name}
-                </span>
+              <div className="flex items-center space-x-3">
+                <Avatar
+                  src={req.employee?.profileImage}
+                  firstName={req.employee?.firstName}
+                  lastName={req.employee?.lastName}
+                  employeeCode={req.employee?.employeeCode}
+                  email={req.employee?.email}
+                  size="sm"
+                />
+                <div>
+                  <span className="font-semibold text-slate-900 block text-xs">
+                    {req.employee?.firstName} {req.employee?.lastName}
+                  </span>
+                  <span className="text-[10px] text-slate-400 block font-mono">
+                    {req.employee?.employeeCode} • {req.employee?.department?.name}
+                  </span>
+                </div>
               </div>
             ),
           },

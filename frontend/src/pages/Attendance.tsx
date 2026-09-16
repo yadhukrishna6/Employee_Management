@@ -9,6 +9,7 @@ import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
+import { Avatar } from '../components/ui/Avatar';
 
 export const Attendance: React.FC = () => {
   const { role } = useAuth();
@@ -64,13 +65,23 @@ export const Attendance: React.FC = () => {
           {
             header: 'Employee',
             cell: (r: AttendanceRecord) => (
-              <div>
-                <span className="font-semibold text-slate-900 block text-xs">
-                  {r.employee?.firstName} {r.employee?.lastName}
-                </span>
-                <span className="text-[10px] text-slate-400 block font-mono">
-                  {r.employee?.employeeCode} • {r.employee?.department?.name}
-                </span>
+              <div className="flex items-center space-x-3">
+                <Avatar
+                  src={r.employee?.profileImage}
+                  firstName={r.employee?.firstName}
+                  lastName={r.employee?.lastName}
+                  employeeCode={r.employee?.employeeCode}
+                  email={r.employee?.email}
+                  size="sm"
+                />
+                <div>
+                  <span className="font-semibold text-slate-900 block text-xs">
+                    {r.employee?.firstName} {r.employee?.lastName}
+                  </span>
+                  <span className="text-[10px] text-slate-400 block font-mono">
+                    {r.employee?.employeeCode} • {r.employee?.department?.name}
+                  </span>
+                </div>
               </div>
             ),
           },

@@ -27,6 +27,8 @@ export interface Payslip {
   employee?: {
     firstName: string;
     lastName: string;
+    email?: string;
+    profileImage?: string | null;
     employeeCode: string;
     designation: string;
     department?: { name: string };

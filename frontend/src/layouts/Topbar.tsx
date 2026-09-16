@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, Bell, LogOut, Check } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { notificationService, NotificationItem } from '../services/notification.service';
+import { Avatar } from '../components/ui/Avatar';
 
 export const Topbar: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) => {
   const { user, organization, logout } = useAuth();
@@ -142,9 +143,15 @@ export const Topbar: React.FC<{ onMenuClick: () => void }> = ({ onMenuClick }) =
 
         {/* User Badge */}
         <div className="flex items-center space-x-3 pl-3 border-l border-slate-200">
-          <div className="h-9 w-9 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
-            {user?.employee?.firstName?.[0] || user?.email?.[0]?.toUpperCase() || 'U'}
-          </div>
+          <Avatar
+            src={user?.employee?.profileImage}
+            firstName={user?.employee?.firstName}
+            lastName={user?.employee?.lastName}
+            employeeCode={user?.employee?.employeeCode}
+            email={user?.email}
+            size="sm"
+            status="online"
+          />
           <div className="hidden md:block text-left">
             <span className="block text-xs font-semibold text-slate-800 leading-tight">
               {user?.employee ? `${user.employee.firstName} ${user.employee.lastName}` : user?.email}

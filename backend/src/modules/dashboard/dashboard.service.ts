@@ -160,7 +160,7 @@ export class DashboardService {
         },
         include: {
           leaveType: true,
-          employee: { select: { firstName: true, lastName: true, employeeCode: true } },
+          employee: { select: { id: true, firstName: true, lastName: true, employeeCode: true, email: true, profileImage: true } },
         },
       }),
       prisma.performanceReview.aggregate({

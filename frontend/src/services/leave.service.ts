@@ -36,6 +36,8 @@ export interface LeaveRequest {
   employee?: {
     firstName: string;
     lastName: string;
+    email?: string;
+    profileImage?: string | null;
     employeeCode: string;
     department?: { name: string };
   };

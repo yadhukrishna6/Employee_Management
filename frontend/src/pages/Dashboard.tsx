@@ -27,6 +27,7 @@ import { useAuth } from '../context/AuthContext';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { Avatar } from '../components/ui/Avatar';
 import { LoadingSkeleton } from '../components/ui/LoadingSkeleton';
 
 export const Dashboard: React.FC = () => {
@@ -325,15 +326,25 @@ export const Dashboard: React.FC = () => {
           ) : (
             <div className="divide-y divide-slate-100">
               {d.pendingLeaves.map((req: any) => (
-                <div key={req.id} className="py-3 flex items-center justify-between">
-                  <div>
-                    <span className="text-sm font-semibold text-slate-900">
-                      {req.employee.firstName} {req.employee.lastName}
-                    </span>
-                    <span className="text-xs text-slate-500 block">
-                      {req.leaveType.name} ({req.numberOfDays} days) • {req.startDate.split('T')[0]} to {req.endDate.split('T')[0]}
-                    </span>
-                    <p className="text-xs text-slate-600 italic mt-0.5">"{req.reason}"</p>
+                <div key={req.id} className="py-3 flex items-center justify-between gap-4">
+                  <div className="flex items-center space-x-3">
+                    <Avatar
+                      src={req.employee?.profileImage}
+                      firstName={req.employee?.firstName}
+                      lastName={req.employee?.lastName}
+                      employeeCode={req.employee?.employeeCode}
+                      email={req.employee?.email}
+                      size="sm"
+                    />
+                    <div>
+                      <span className="text-sm font-semibold text-slate-900">
+                        {req.employee.firstName} {req.employee.lastName}
+                      </span>
+                      <span className="text-xs text-slate-500 block">
+                        {req.leaveType.name} ({req.numberOfDays} days) • {req.startDate.split('T')[0]} to {req.endDate.split('T')[0]}
+                      </span>
+                      <p className="text-xs text-slate-600 italic mt-0.5">"{req.reason}"</p>
+                    </div>
                   </div>
                   <div className="flex space-x-2">
                     <Button

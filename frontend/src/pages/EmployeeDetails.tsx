@@ -14,6 +14,7 @@ import { employeeService } from '../services/employee.service';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';
+import { Avatar } from '../components/ui/Avatar';
 import { LoadingSkeleton } from '../components/ui/LoadingSkeleton';
 
 export const EmployeeDetails: React.FC = () => {
@@ -56,9 +57,14 @@ export const EmployeeDetails: React.FC = () => {
       <Card className="p-6">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center space-x-4">
-            <div className="h-16 w-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-2xl font-bold shadow-md">
-              {emp.firstName[0]}
-            </div>
+            <Avatar
+              src={emp.profileImage}
+              firstName={emp.firstName}
+              lastName={emp.lastName}
+              employeeCode={emp.employeeCode}
+              email={emp.email}
+              size="xl"
+            />
             <div>
               <div className="flex items-center space-x-2">
                 <h1 className="text-xl font-bold text-slate-900">

@@ -13,6 +13,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Modal } from '../components/ui/Modal';
+import { Avatar } from '../components/ui/Avatar';
 
 const generatePayslipSchema = z.object({
   employeeId: z.string().min(1, 'Please select an employee'),
@@ -94,13 +95,23 @@ export const Payroll: React.FC = () => {
           {
             header: 'Employee',
             cell: (ps: Payslip) => (
-              <div>
-                <span className="font-semibold text-slate-900 block text-xs">
-                  {ps.employee?.firstName} {ps.employee?.lastName}
-                </span>
-                <span className="text-[10px] text-slate-400 block font-mono">
-                  {ps.employee?.employeeCode} • {ps.employee?.department?.name}
-                </span>
+              <div className="flex items-center space-x-3">
+                <Avatar
+                  src={ps.employee?.profileImage}
+                  firstName={ps.employee?.firstName}
+                  lastName={ps.employee?.lastName}
+                  employeeCode={ps.employee?.employeeCode}
+                  email={ps.employee?.email}
+                  size="sm"
+                />
+                <div>
+                  <span className="font-semibold text-slate-900 block text-xs">
+                    {ps.employee?.firstName} {ps.employee?.lastName}
+                  </span>
+                  <span className="text-[10px] text-slate-400 block font-mono">
+                    {ps.employee?.employeeCode} • {ps.employee?.department?.name}
+                  </span>
+                </div>
               </div>
             ),
           },
@@ -259,16 +270,26 @@ export const Payroll: React.FC = () => {
         >
           <div className="space-y-6">
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
-              <div>
-                <span className="text-xs text-slate-500 block">Generated For</span>
-                <span className="text-sm font-bold text-slate-900 block">
-                  {viewingPayslip.employee
-                    ? `${viewingPayslip.employee.firstName} ${viewingPayslip.employee.lastName}`
-                    : 'Employee'}
-                </span>
-                <span className="text-xs text-slate-400 font-mono">
-                  {viewingPayslip.employee?.employeeCode} • {viewingPayslip.employee?.designation}
-                </span>
+              <div className="flex items-center space-x-3">
+                <Avatar
+                  src={viewingPayslip.employee?.profileImage}
+                  firstName={viewingPayslip.employee?.firstName}
+                  lastName={viewingPayslip.employee?.lastName}
+                  employeeCode={viewingPayslip.employee?.employeeCode}
+                  email={viewingPayslip.employee?.email}
+                  size="md"
+                />
+                <div>
+                  <span className="text-xs text-slate-500 block">Generated For</span>
+                  <span className="text-sm font-bold text-slate-900 block">
+                    {viewingPayslip.employee
+                      ? `${viewingPayslip.employee.firstName} ${viewingPayslip.employee.lastName}`
+                      : 'Employee'}
+                  </span>
+                  <span className="text-xs text-slate-400 font-mono">
+                    {viewingPayslip.employee?.employeeCode} • {viewingPayslip.employee?.designation}
+                  </span>
+                </div>
               </div>
               <div className="text-right">
                 <span className="text-xs text-slate-500 block">Net Pay Amount</span>

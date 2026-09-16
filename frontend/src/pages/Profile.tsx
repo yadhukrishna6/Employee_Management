@@ -8,6 +8,7 @@ import { authService } from '../services/auth.service';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
+import { Avatar } from '../components/ui/Avatar';
 
 const changePasswordSchema = z.object({
   currentPassword: z.string().min(1, 'Current password is required'),
@@ -64,8 +65,15 @@ export const Profile: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Profile Card */}
         <Card className="p-6 text-center">
-          <div className="h-20 w-20 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-600 mx-auto flex items-center justify-center text-white text-2xl font-bold shadow-md shadow-blue-500/20 mb-4">
-            {user?.employee?.firstName?.[0] || user?.email?.[0].toUpperCase()}
+          <div className="flex justify-center mb-4">
+            <Avatar
+              src={user?.employee?.profileImage}
+              firstName={user?.employee?.firstName}
+              lastName={user?.employee?.lastName}
+              employeeCode={user?.employee?.employeeCode}
+              email={user?.email}
+              size="2xl"
+            />
           </div>
           <h3 className="text-lg font-bold text-slate-900">
             {user?.employee ? `${user.employee.firstName} ${user.employee.lastName}` : user?.email}

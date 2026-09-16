@@ -13,6 +13,7 @@ import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Badge } from '../components/ui/Badge';
 import { Modal } from '../components/ui/Modal';
+import { Avatar } from '../components/ui/Avatar';
 import { Employee } from '../types';
 
 const createEmployeeSchema = z.object({
@@ -107,9 +108,14 @@ export const Employees: React.FC = () => {
       header: 'Employee Name',
       cell: (emp) => (
         <div className="flex items-center space-x-3">
-          <div className="h-8 w-8 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">
-            {emp.firstName[0]}
-          </div>
+          <Avatar
+            src={emp.profileImage}
+            firstName={emp.firstName}
+            lastName={emp.lastName}
+            employeeCode={emp.employeeCode}
+            email={emp.email}
+            size="sm"
+          />
           <div>
             <span className="font-semibold text-slate-900 block">{emp.firstName} {emp.lastName}</span>
             <span className="text-xs text-slate-400 block">{emp.email}</span>

@@ -199,6 +199,8 @@ export class AttendanceService {
               id: true,
               firstName: true,
               lastName: true,
+              email: true,
+              profileImage: true,
               employeeCode: true,
               designation: true,
               department: {

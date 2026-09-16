@@ -12,6 +12,7 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Select } from '../components/ui/Select';
 import { Modal } from '../components/ui/Modal';
+import { Avatar } from '../components/ui/Avatar';
 import { LoadingSkeleton } from '../components/ui/LoadingSkeleton';
 
 const createReviewSchema = z.object({
@@ -100,21 +101,31 @@ export const Performance: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {reviews.map((rev) => (
           <Card key={rev.id} className="p-6 border-slate-200">
-            <div className="flex items-start justify-between">
-              <div>
-                <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
-                  {rev.reviewPeriod}
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 mt-1">
-                  {rev.employee
-                    ? `${rev.employee.firstName} ${rev.employee.lastName}`
-                    : 'Employee Review'}
-                </h3>
-                <span className="text-xs text-slate-400">
-                  {rev.employee?.designation} • Reviewed by {rev.reviewer?.firstName} {rev.reviewer?.lastName}
-                </span>
+            <div className="flex items-start justify-between gap-4">
+              <div className="flex items-start space-x-3.5">
+                <Avatar
+                  src={rev.employee?.profileImage}
+                  firstName={rev.employee?.firstName}
+                  lastName={rev.employee?.lastName}
+                  employeeCode={rev.employee?.employeeCode}
+                  email={rev.employee?.email}
+                  size="md"
+                />
+                <div>
+                  <span className="text-xs font-bold text-blue-600 uppercase tracking-wider">
+                    {rev.reviewPeriod}
+                  </span>
+                  <h3 className="text-base font-bold text-slate-900 mt-0.5">
+                    {rev.employee
+                      ? `${rev.employee.firstName} ${rev.employee.lastName}`
+                      : 'Employee Review'}
+                  </h3>
+                  <span className="text-xs text-slate-400 block mt-0.5">
+                    {rev.employee?.designation} • Reviewed by {rev.reviewer?.firstName} {rev.reviewer?.lastName}
+                  </span>
+                </div>
               </div>
-              <div className="text-center bg-blue-50 px-3 py-2 rounded-xl border border-blue-100">
+              <div className="text-center bg-blue-50 px-3 py-2 rounded-xl border border-blue-100 shrink-0">
                 <div className="flex items-center text-amber-500 justify-center">
                   <Star className="w-4 h-4 fill-amber-400 mr-1" />
                   <span className="text-lg font-black text-slate-900">{rev.overallRating}</span>
