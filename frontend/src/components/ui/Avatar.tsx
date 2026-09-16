@@ -103,39 +103,43 @@ export const Avatar: React.FC<AvatarProps> = ({
   }[size];
 
   const statusSizeClasses = {
-    xs: 'w-1.5 h-1.5',
-    sm: 'w-2 h-2',
-    md: 'w-2.5 h-2.5',
-    lg: 'w-3 h-3',
-    xl: 'w-3.5 h-3.5',
-    '2xl': 'w-4 h-4',
+    xs: 'w-2 h-2',
+    sm: 'w-2.5 h-2.5',
+    md: 'w-3 h-3',
+    lg: 'w-3.5 h-3.5',
+    xl: 'w-4 h-4',
+    '2xl': 'w-5 h-5',
   }[size];
 
   return (
     <div
-      className={`relative rounded-full shrink-0 overflow-hidden select-none ${sizeClasses} ${
-        ring ? 'ring-2 ring-white shadow-2xs' : ''
-      } ${className}`}
+      className={`relative inline-flex shrink-0 select-none ${sizeClasses} ${className}`}
     >
-      {!imgError && avatarUrl ? (
-        <img
-          src={avatarUrl}
-          alt={displayName}
-          className="w-full h-full object-cover rounded-full"
-          onError={() => setImgError(true)}
-          loading="lazy"
-        />
-      ) : (
-        <div
-          className={`w-full h-full rounded-full flex items-center justify-center font-bold text-white shadow-inner ${bgColor}`}
-        >
-          {initial}
-        </div>
-      )}
+      <div
+        className={`w-full h-full rounded-full overflow-hidden ${
+          ring ? 'ring-2 ring-white shadow-xs' : ''
+        }`}
+      >
+        {!imgError && avatarUrl ? (
+          <img
+            src={avatarUrl}
+            alt={displayName}
+            className="w-full h-full object-cover"
+            onError={() => setImgError(true)}
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className={`w-full h-full flex items-center justify-center font-bold text-white shadow-inner ${bgColor}`}
+          >
+            {initial}
+          </div>
+        )}
+      </div>
 
       {status && (
         <span
-          className={`absolute bottom-0 right-0 rounded-full ring-2 ring-white ${statusSizeClasses} ${
+          className={`absolute bottom-0 right-0 block rounded-full ring-2 ring-white z-10 ${statusSizeClasses} ${
             status === 'online'
               ? 'bg-emerald-500'
               : status === 'busy'
@@ -144,6 +148,7 @@ export const Avatar: React.FC<AvatarProps> = ({
               ? 'bg-amber-500'
               : 'bg-slate-400'
           }`}
+          title={status.toUpperCase()}
         />
       )}
     </div>
